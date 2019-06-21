@@ -26,18 +26,18 @@ find $DIR -maxdepth 1 -type f -name ".*" \
     -not -name ".gitignore" -exec ln -sf {} ~/ \;
 
 mkdir -p ~/.screenrc.d && \
-    chmod 700 $DIR/.screenrc.d && \
+    chmod 700 ~/.screenrc.d && \
     chown $USER:$USER ~/.screenrc.d
 
 mkdir -p ~/.local/bin && \
-    chmod 700 $DIR/.local/bin/* && \
+    chmod 700 ~/.local/bin/* && \
     chown $USER:$USER ~/.local/bin
 
 find $DIR/.local/bin/ -maxdepth 1 -type f -name ".*" \
     -exec ln -sf {} ~/.local/bin/ \;
 
 mkdir -p ~/.bashrc.d && \
-    chmod 600 $DIR/.bashrc.d/* && \
+    chmod 600 ~/.bashrc.d/* && \
     chown $USER:$USER ~/.bashrc.d
 
 find $DIR/.bashrc.d/ -maxdepth 1 -type f -name "*.bash" \
