@@ -82,10 +82,10 @@ source "${HOME}/.screenrc.d/${HOSTNAME}.screen"
 
 # backticks for use in caption or hardstatus (#`)
 # number active_seconds refresh_interval_seconds
-backtick 0 0 0 ~./.local/bin/get_connection_type.sh
-backtick 1 0 0 ~./.local/bin/get_connection.sh
-backtick 2 60 60 ~./.local/bin/get_mailcount.sh
-backtick 3 0 0 ~./.local/bin/get_ipv4.sh
+backtick 0 0 0 $HOME/.local/bin/get_connection_type.sh
+backtick 1 0 0 $HOME/.local/bin/get_connection.sh
+backtick 2 60 60 $HOME/.local/bin/get_mailcount.sh
+backtick 3 0 0 $HOME/.local/bin/get_ipv4.sh
 
 # caption and status
 truecolors on

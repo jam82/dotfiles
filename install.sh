@@ -33,7 +33,7 @@ mkdir -p ~/.local/bin && \
     chmod 700 ~/.local/bin/* && \
     chown $USER:$USER ~/.local/bin
 
-find $DIR/.local/bin/ -maxdepth 1 -type f -name ".*" \
+find $DIR/.local/bin/ -maxdepth 1 -type f -name "*" \
     -exec ln -sf {} ~/.local/bin/ \;
 
 mkdir -p ~/.bashrc.d && \
