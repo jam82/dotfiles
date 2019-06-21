@@ -1,0 +1,27 @@
+#===============================================================================  
+#                                                                                 
+#          FILE: .inputrc                                                         
+#                                                                                 
+#   DESCRIPTION: jam82's inputrc settings                                         
+#                                                                                 
+#        AUTHOR: Jonas Mauer (jam82), jam@kabelmail.net                           
+#       CREATED: 12.06.2018 19:42:40                                              
+#      REVISION: 1.0.0                                                            
+#                                                                                 
+#===============================================================================  
+                                                                                  
+$include /etc/inputrc                                                             
+                                                                                  
+# Allow page up/down autocompletion of commands from bash history.                
+"\e[5~": history-search-forward                                                   
+"\e[6~": history-search-backward                                                  
+                                                                                  
+#set colored-stats on                                                             
+set completion-ignore-case on                                                     
+set mark-symlinked-directories on                                                 
+set show-all-if-ambiguous on                                                      
+set show-all-if-unmodified on                                                     
+set visible-stats on                                                              
+                                                                                  
+# Enable vi-like command line editing mode.                                       
+#set editing-mode vi                                                               

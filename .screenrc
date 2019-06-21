@@ -1,0 +1,96 @@
+#===============================================================================
+#
+#          FILE: .screenrc
+# 
+#   DESCRIPTION: jam82's screen settings
+# 
+#        AUTHOR: Jonas Mauer (jam82), jam@kabelmail.net
+#       CREATED: 05.03.2016 11:12:57
+#      REVISION: 1.0.0
+#
+#===============================================================================
+
+# This is how one can set a reattach password:
+# password ODSJQf.4IJN7E    # "1234"
+
+# no annoying audible bell, please
+# and no visual bell
+vbell off
+
+# detach on hangup
+autodetach on
+
+# don't display the copyright page
+startup_message off
+
+# emulate .logout message
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+
+# advertise hardstatus support to $TERMCAP
+termcapinfo  * '' 'hs:ts=\E_:fs=\E\\:ds=\E_\E\\'
+
+# make the shell in every window a login shell
+shell -$SHELL
+
+# autoaka testing
+shellaka '$ |bash'
+shelltitle '$ |bash'
+
+# screen is announcing itself as screen, not as xterm
+term "screen"
+
+# set every new windows hardstatus line to somenthing descriptive
+#defhstatus "screen: ^En (^Et)"
+
+defscrollback 10000
+
+# don't kill window after the process died
+#zombie "^["
+
+# enable support for the "alternate screen" capability in all windows
+#altscreen on
+
+# no other users are allowed to attach
+multiuser off
+
+# keybindings
+#remove some stupid / dangerous key bindings
+bind k
+bind ^k
+bind .
+bind ^\
+bind \\
+bind ^h
+bind h
+#make them better
+bind 'K' kill
+bind 'I' login on
+bind 'O' login off
+bind '}' history
+bind 'q' quit
+bind 'R' screen -t '% |root' sudo -i
+
+# Yet another hack:
+# Prepend/append register [/] to the paste if ^a^] is pressed.
+# This lets me have autoindent mode in vim.
+register [ "\033:se noai\015a"
+register ] "\033:se ai\015a"
+bind ^] paste [.]
+
+# When file not present only one screen 0 is shown
+source "${HOME}/.screenrc.d/${HOSTNAME}.screen"
+
+# backticks for use in caption or hardstatus (#`)
+# number active_seconds refresh_interval_seconds
+backtick 0 0 0 ~./.local/bin/get_connection_type.sh
+backtick 1 0 0 ~./.local/bin/get_connection.sh
+backtick 2 60 60 ~./.local/bin/get_mailcount.sh
+backtick 3 0 0 ~./.local/bin/get_ipv4.sh
+
+# caption and status
+truecolors on
+caption always "%{= KW}| screen: | %-Lw%{= Wk} %n*%f %t %{-}%+Lw %-= |"
+# with backticks
+hardstatus alwayslastline "%{= KW}| %{= kB}%-=host: %{= kW}%H | %{= kB}ip4: %{= kW}%3` %?%{= kG}%0` %1`%? %{= kW}| %{= kB}# mail: %{= kW}%2` %{= kW}| %{= kB}date: %{= kW}%D %d.%m.%Y %c %-= %{= KW}|"
+# without backticks
+# hardstatus alwayslastline "%{= KW}| %{= kB}%-=host: %{= kW}%H | %{= kB}date: %{= kW}%D %d.%m.%Y %c %-= %{= KW}|"
