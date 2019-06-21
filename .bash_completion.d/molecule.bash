@@ -1,5 +1,5 @@
 # file: ~/.bash_completion.d/molecule.bash
 
-if has molecule; then
+if hash molecule 2>/dev/null; then
     eval "$(_MOLECULE_COMPLETE=source molecule)"
 fi

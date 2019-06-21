@@ -27,7 +27,7 @@ startup_message off
 pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 
 # advertise hardstatus support to $TERMCAP
-termcapinfo  * '' 'hs:ts=\E_:fs=\E\\:ds=\E_\E\\'
+#termcapinfo  * '' 'hs:ts=\E_:fs=\E\\:ds=\E_\E\\'
 
 # make the shell in every window a login shell
 shell -$SHELL
@@ -37,7 +37,7 @@ shellaka '$ |bash'
 shelltitle '$ |bash'
 
 # screen is announcing itself as screen, not as xterm
-term "screen"
+#term "screen"
 
 # set every new windows hardstatus line to somenthing descriptive
 #defhstatus "screen: ^En (^Et)"

@@ -16,12 +16,12 @@
 # source .bash files
 function source_when_true {
   local bash_file
-  for bash_file in "$HOME/$1/*.bash" ; do
-    [[ -f "$bash_file" && -r "$bash_file" ]] && source $bash_file
+  for bash_file in $HOME/$1/*.bash ; do
+    source "$bash_file"
   done
 }
 
-source_when_true .bashrc.d
+source_when_true ".bashrc.d"
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/bash lesspipe)"

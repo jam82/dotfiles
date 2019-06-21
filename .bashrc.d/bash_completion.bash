@@ -12,4 +12,4 @@ if ! shopt -oq posix; then
 fi
 
 # source tool specific completions
-source_when_true '.bash-ccompletion.d'
+source_when_true ".bash_completion.d"

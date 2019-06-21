@@ -1,5 +1,5 @@
 # file: ~/.bash_completion.d/kube.bash
 
-if has kubectl; then
+if hash kubectl 2>/dev/null; then
     source <(kubectl completion bash)
 fi
