@@ -106,6 +106,17 @@ function ghub-irap() {
   return 0
 }
 
+function ghub-rap() {
+  if [[ ! "$1" ]] ; then
+    echo "You must supply a git repo."
+    return 1
+  fi
+
+  git remote add origin $GITHUB_SSH_URL$1.git && \
+  git push -u origin master
+  return 0
+}
+
 # some security fixes
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
