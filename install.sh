@@ -30,22 +30,17 @@ mkdir -p ~/.screenrc.d && \
     chown $USER:$USER ~/.screenrc.d
 
 mkdir -p ~/.local/bin && \
-    chmod 700 ~/.local/bin/* && \
     chown $USER:$USER ~/.local/bin
 
 find $DIR/.local/bin/ -maxdepth 1 -type f -name "*" \
     -exec ln -sf {} ~/.local/bin/ \;
 
-mkdir -p ~/.bashrc.d && \
-    chmod 600 ~/.bashrc.d/* && \
-    chown $USER:$USER ~/.bashrc.d
+chmod 700 ~/.local/bin/*
 
-find $DIR/.bashrc.d/ -maxdepth 1 -type f -name "*.bash" \
-    -exec ln -sf {} ~/.bashrc.d/ \;
+ln -sf $DIR/.bashrc.d ~/.bashrc.d && \
+chmod 700 ~/.bashrc.d && \
+chmod 600 ~/.bashrc.d/*
 
-mkdir -p ~/.bash_completion.d && \
-    chmod 600 $DIR/.bash_completion.d/* && \
-    chown $USER:$USER ~/.bash_completion.d
-
-find $DIR/.bash_completion.d/ -maxdepth 1 -type f -name "*.bash" \
-    -exec ln -sf {} ~/.bash_completion.d/ \;
+ln -sf $DIR/.bash_completion.d ~/.bash_completion.d && \
+chmod 700 ~/.bash_completion.d && \
+chmod 600 ~/.bash_completion.d/*
