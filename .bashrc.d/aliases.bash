@@ -62,15 +62,9 @@ ex ()
 # ----------------------------------------------------------------------------
 # Docker Functions (thanks to https://github.com/geerlingguy)
 # ----------------------------------------------------------------------------
-#
-# Usage: dockrun, or dockrun [archlinux/base,etc.]
-#
-function dockrun() {
-  docker run -it $GITHUB_USER/"${1:-ubuntu1804}"-molecule /bin/bash
-}
 
 # Enter a running Docker container.
-function denter() {
+function dockbash() {
   if [[ ! "$1" ]] ; then
     echo "You must supply a container ID or name."
     return 1
@@ -78,6 +72,27 @@ function denter() {
 
   docker exec -it $1 /bin/bash
   return 0
+}
+
+export -f dockbash
+
+# Run docker container in detached and privileged mode
+function dockrun() {
+  docker run --detach --privileged "${1:-jam82/ubuntu1604}"
+}
+
+function dockrunbash() {
+  dockrun | xargs -t -n1 -I{} bash -c "dockbash {}"
+}
+
+# Stop all running docker containers
+function dstop() {
+  docker ps | awk '{ print $1}' | grep -v CONTAINER | xargs docker stop
+}
+
+# Remove all local Docker images
+function drmi() {
+  docker images | awk '{ print $3 }' | grep -v IMAGE | xargs docker rmi -f
 }
 
 # ----------------------------------------------------------------------------

@@ -2,19 +2,17 @@
 
 CDPATH=".:~:~/Dokumente:~/Downloads:~/src"
 
-HISTCONTROL="ignorespace:erasedups"
-
-HISTFILE="~/.bash_history"
+HISTCONTROL="ignoreboth"
 
 HISTFILESIZE=10000
 
-HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
+HISTIGNORE="exit:ls:bg:fg:history:clear"
 
 HISTSIZE=50000
 
 INPUTRC="~/.inputrc"
 
-shopt -s cdable_vars
+SAVEHIST=1
 
 shopt -s cdspell
 
