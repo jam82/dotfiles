@@ -40,10 +40,14 @@ find $DIR/.local/bin/ -maxdepth 1 -type f -name "*" \
 
 chmod 700 ~/.local/bin/*
 
-ln -sf $DIR/.bashrc.d ~/.bashrc.d && \
-chmod 700 ~/.bashrc.d && \
-chmod 600 ~/.bashrc.d/*
+if [[ ! -L ~/.bashrc.d && ! -d ~/.bashrc.d ]]; then
+    ln -sf $DIR/.bashrc.d ~/.bashrc.d && \
+    chmod 700 ~/.bashrc.d && \
+    chmod 600 ~/.bashrc.d/*
+fi
 
-ln -sf $DIR/.bash_completion.d ~/.bash_completion.d && \
-chmod 700 ~/.bash_completion.d && \
-chmod 600 ~/.bash_completion.d/*
+if [[ ! -L ~/.bash_completion.d && ! -d ~/.bash_completion.d ]]; then
+    ln -sf $DIR/.bash_completion.d ~/.bash_completion.d && \
+    chmod 700 ~/.bash_completion.d && \
+    chmod 600 ~/.bash_completion.d/*
+fi
