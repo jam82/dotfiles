@@ -15,6 +15,12 @@ function dotfiles-update() {
     source ~/.bashrc
 }
 
+# update all including remotes
+function dotfiles-update-all() {
+    dotfiles-update
+    ansible pkgman_apt -m shell -a "cd .dotfiles && git pull"
+}
+
 # commit and push
 function dotfiles-cap() {
     dotfiles add .
