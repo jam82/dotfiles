@@ -23,7 +23,10 @@ set -o nounset                              # Treat unset variables as an error
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 find $DIR -maxdepth 1 -type f -name ".*" \
-    -not -name ".gitignore" -exec ln -sf {} ~/ \;
+    -not -name ".gitignore" -not -name ".bashrc_local" \
+    -exec ln -sf {} ~/ \;
+
+[ -f ~/.bashrc_local ] || cp $DIR/.bashrc_local ~/
 
 mkdir -p ~/.screenrc.d && \
     chmod 700 ~/.screenrc.d && \

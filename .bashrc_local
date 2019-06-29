@@ -1,0 +1,10 @@
+# file ~/.bashrc_local
+
+# Github.com
+export GITHUB_USER=""
+export GITHUB_TOKEN=""
+
+# Gitea
+export GITEA_USER=""
+export GITEA_TOKEN=""
+export GITEA_BASE_URL=""

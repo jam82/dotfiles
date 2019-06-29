@@ -1,2 +1,4 @@
 #!/bin/bash -
-if [[ $SSH_CONNECTION ]]; then echo 'via ssh'; fi
+if [[ $SSH_CONNECTION ]]; then 
+    echo 'via ssh'
+fi
