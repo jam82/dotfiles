@@ -13,6 +13,11 @@
 # If not running interactively, don't do anything from here
 [[ $- != *i* ]] && return
 
+# source local vars file
+if [ -f ~/.bashrc_local ]; then
+  source ~/.bashrc_local
+fi
+
 # source .bash files
 function source_when_true {
   local bash_file
@@ -22,11 +27,6 @@ function source_when_true {
 }
 
 source_when_true ".bashrc.d"
-
-# source local vars file and overwrite vars if necessary
-if [ -f ~/.bashrc_local ]; then
-  source ~/.bashrc_local
-fi
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/bash lesspipe)"
