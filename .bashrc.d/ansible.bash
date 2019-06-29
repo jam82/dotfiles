@@ -27,5 +27,5 @@ function ado-reboot() {
         echo "Aborted: Use parameter 'force' or nothing."
         return 0
     fi
-    ansible debian -m shell -a $ADO_CMD -b
+    ansible debian -m shell -a "$ADO_CMD" -b
 }
