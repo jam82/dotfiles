@@ -35,9 +35,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # GPG Master-Keys
 alias gpg2-master='gpg2 --homedir="~/.gnupg-master"'
 
-# Fun
-alias cbsg='curl -s http://cbsg.sourceforge.net/cgi-bin/live | grep -Eo "^<li>.*</li>" | sed s,\</\\?li\>,,g | shuf -n 1'
-
 # pretty print PATH
 alias path='echo -e ${PATH//:/\\n}'
 alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
