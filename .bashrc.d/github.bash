@@ -14,7 +14,7 @@ function ghub-clone() {
   return 0
 }
 
-function ghub-irap() {
+function ghub-ircap() {
   if [[ ! "$1" ]] ; then
     echo "You must supply a github repo."
     return 1
@@ -22,6 +22,8 @@ function ghub-irap() {
 
   git init && \
   git remote add origin $GITHUB_SSH_URL$1.git && \
+  git add . && \
+  git commit -m "first commit" && \
   git push -u origin master
   return 0
 }
