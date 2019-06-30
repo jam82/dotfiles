@@ -1,7 +1,7 @@
 # file: ~/.bashrc.d/dotfiles.bash
 
 # ----------------------------------------------------------------------------
-# dotfile Functions and ALiases
+# dotfile Functions and Aliases
 # ----------------------------------------------------------------------------
 
 DOT_PATH=$HOME/.dotfiles
