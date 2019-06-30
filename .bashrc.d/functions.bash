@@ -32,13 +32,6 @@ function colors() {
   done
 }
 
-# up 2 = cd ../../
-function upup() { 
-  DEEP=$1; \
-  [ -z "${DEEP}" ] && { DEEP=1; }; \
-  for i in $(seq 1 ${DEEP}); do cd ../; done; 
-}
-
 # ex - archive extractor
 # usage: ex <file>
 function ex() {
@@ -60,4 +53,11 @@ function ex() {
   else
     echo "'$1' is not a valid file"
   fi
+}
+
+# up 2 = cd ../../
+function upup() { 
+  DEEP=$1; \
+  [ -z "${DEEP}" ] && { DEEP=1; }; \
+  for i in $(seq 1 ${DEEP}); do cd ../; done; 
 }
