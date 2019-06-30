@@ -25,6 +25,7 @@ alias mem='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head'
 alias cpu='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head'
 alias sha3sum='sha3sum -a 512'
 alias pipi='pip install --user'
+alias bash-lint='find . -path ./.git -prune -o -type f -name "*.*sh" -exec shellcheck -C -f tty -s bash {} \;'
 
 alias up='upup' # nutzt Funktion upup()
 

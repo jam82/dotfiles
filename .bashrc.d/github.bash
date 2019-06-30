@@ -10,7 +10,7 @@ function ghub-clone() {
     return 1
   fi
   
-  git clone $GITHUB_SSH_URL$1.git
+  git clone "$GITHUB_SSH_URL$1.git"
   return 0
 }
 
@@ -21,7 +21,7 @@ function ghub-ircap() {
   fi
 
   git init && \
-  git remote add origin $GITHUB_SSH_URL$1.git && \
+  git remote add origin "$GITHUB_SSH_URL$1.git" && \
   git add . && \
   git commit -m "first commit" && \
   git push -u origin master
@@ -34,7 +34,7 @@ function ghub-rap() {
     return 1
   fi
 
-  git remote add origin $GITHUB_SSH_URL$1.git && \
+  git remote add origin "$GITHUB_SSH_URL$1.git" && \
   git push -u origin master
   return 0
 }

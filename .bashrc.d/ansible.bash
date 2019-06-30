@@ -23,9 +23,9 @@ function ado-check-updates() {
 # reboot if required ($1=force reboots all, regardless if required)
 function ado-reboot() {
     local ADO_CMD
-    if [ -z $1 ]; then
+    if [ -z "$1" ]; then
         ADO_CMD="[ -f /var/run/reboot-required ] && reboot"
-    elif [ $1 == "force" ]; then
+    elif [ "$1" == "force" ]; then
         ADO_CMD="reboot"
     else
         echo "Aborted: Use parameter 'force' or nothing."
