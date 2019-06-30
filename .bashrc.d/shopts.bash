@@ -6,7 +6,7 @@ HISTCONTROL="ignoreboth"
 
 HISTFILESIZE=10000
 
-HISTIGNORE="exit:ls:bg:fg:history:clear"
+HISTIGNORE="exit:ls:bg:fg:history:clear:ansible-vault"
 
 HISTSIZE=50000
 

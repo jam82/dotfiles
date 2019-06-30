@@ -6,7 +6,6 @@
 
 export ANSIBLE_INVENTORY=~/.ansible/hosts.yml
 export ANSIBLE_ROLES_PATH=~/.ansible/roles
-export ANSIBLE_VAULT=~/.ansible/.vault
 
 # check all debian based remote machines if reboot is required (rc=1 > reboot)
 function ado-check-reboot() {

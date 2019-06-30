@@ -5,7 +5,7 @@
 # ----------------------------------------------------------------------------
 
 # show colors
-colors() {
+function colors() {
   local fgc bgc vals seq0
 
   printf "Color escapes are %s\n" '\e[${value};...;${value}m'
@@ -33,7 +33,11 @@ colors() {
 }
 
 # up 2 = cd ../../
-upup(){ DEEP=$1; [ -z "${DEEP}" ] && { DEEP=1; }; for i in $(seq 1 ${DEEP}); do cd ../; done; }
+function upup() { 
+  DEEP=$1; \
+  [ -z "${DEEP}" ] && { DEEP=1; }; \
+  for i in $(seq 1 ${DEEP}); do cd ../; done; 
+}
 
 # ex - archive extractor
 # usage: ex <file>

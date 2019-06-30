@@ -35,6 +35,9 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # GPG Master-Keys
 alias gpg2-master='gpg2 --homedir="~/.gnupg-master"'
 
+# secret-tool
+alias sec='secret-tool'
+
 # pretty print PATH
 alias path='echo -e ${PATH//:/\\n}'
 alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
