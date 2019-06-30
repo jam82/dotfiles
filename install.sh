@@ -45,9 +45,3 @@ if [[ ! -L ~/.bashrc.d && ! -d ~/.bashrc.d ]]; then
     chmod 700 ~/.bashrc.d && \
     chmod 600 ~/.bashrc.d/*
 fi
-
-if [[ ! -L ~/.bash_completion.d && ! -d ~/.bash_completion.d ]]; then
-    ln -sf $DIR/.bash_completion.d ~/.bash_completion.d && \
-    chmod 700 ~/.bash_completion.d && \
-    chmod 600 ~/.bash_completion.d/*
-fi

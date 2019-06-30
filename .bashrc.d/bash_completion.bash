@@ -12,4 +12,13 @@ if ! shopt -oq posix; then
 fi
 
 # source tool specific completions
-source_when_true ".bash_completion.d"
+
+if hash kubectl 2>/dev/null; then
+    source <(kubectl completion bash)
+fi
+
+if hash molecule 2>/dev/null; then
+    eval "$(_MOLECULE_COMPLETE=source molecule)"
+fi
+
+complete -cf sudo
