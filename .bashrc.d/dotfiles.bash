@@ -18,7 +18,7 @@ function dotfiles-update() {
 # update all including remotes
 function dotfiles-update-all() {
     dotfiles-update
-    ansible ${1:-all} -m shell -a "cd .dotfiles && git pull"
+    ansible ${1:-all} -m shell -a "cd ~/.dotfiles && git pull"
 }
 
 # commit and push
