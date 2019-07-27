@@ -10,7 +10,7 @@ function aga-init() {
     echo "Please specify a role name that will be appended to ansible-role-<rolename>"
     return 1
     fi
-    ansible-galaxy init --role-skeleton=${2:-'./ansible-skeleton'} ansible-role-$1
+    ansible-galaxy init --role-skeleton=${2:-'./ansible-role-skeleton'} ansible-role-$1
 }
 
 # check all debian based remote machines if reboot is required (rc=1 > reboot)
