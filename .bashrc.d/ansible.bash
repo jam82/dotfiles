@@ -5,7 +5,7 @@
 # ----------------------------------------------------------------------------
 
 # ansible-galaxy init with custom role skeleton
-function aga-init() {
+aga-init() {
     if [ -z "$1" ]; then
     echo "Please specify a role name that will be appended to ansible-role-<rolename>"
     return 1
@@ -14,20 +14,20 @@ function aga-init() {
 }
 
 # check all debian based remote machines if reboot is required (rc=1 > reboot)
-function ado-check-reboot() {
+ado-check-reboot() {
     ansible ${1:-pkgman_apt} -m shell \
         -a '[ ! -f /var/run/reboot-required ]'
 }
 
 # check for available updates
-function ado-check-updates() {
+ado-check-updates() {
     ansible ${1:-pkgman_apt} -m shell \
         -a "apt-get -u upgrade --assume-no | tail -n1" \
         -b
 }
 
 # reboot if required ($1=force reboots all, regardless if required)
-function ado-reboot() {
+ado-reboot() {
     local ADO_CMD
     if [ -z "$2" ]; then
         ADO_CMD="[ -f /var/run/reboot-required ] && reboot"
@@ -43,21 +43,21 @@ function ado-reboot() {
 }
 
 # update apt cache on all debian based remote machines
-function ado-apt-update() {
+ado-apt-update() {
     ansible ${1:-pkgman_apt} -m apt \
         -a 'update_cache=yes' \
         -b
 }
 
 # perform apt-get upgrade on all debian based remote machines
-function ado-apt-upgrade() {
+ado-apt-upgrade() {
     ansible ${1:-pkgman_apt} -m apt \
         -a 'upgrade=yes update_cache=yes' \
         -b
 }
 
 # perform apt-get dist-upgrade on all debian based remote machines
-function ado-apt-dist-upgrade() {
+ado-apt-dist-upgrade() {
     ansible ${1:-pkgman_apt} -m apt \
         -a 'upgrade=dist update_cache=yes' \
         -b

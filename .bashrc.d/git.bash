@@ -4,7 +4,7 @@
 # Git Functions
 # ----------------------------------------------------------------------------
 
-function git-cap() {
+git-cap() {
     git add .
     git commit
     git push

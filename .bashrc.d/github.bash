@@ -4,7 +4,7 @@
 # Github Functions
 # ----------------------------------------------------------------------------
 
-function ghub-clone() {
+ghub-clone() {
   if [[ ! "$1" ]] ; then
     echo "You must supply a github repo."
     return 1
@@ -14,7 +14,7 @@ function ghub-clone() {
   return 0
 }
 
-function ghub-ircap() {
+ghub-ircap() {
   if [[ ! "$1" ]] ; then
     echo "You must supply a github repo."
     return 1
@@ -28,7 +28,7 @@ function ghub-ircap() {
   return 0
 }
 
-function ghub-rap() {
+ghub-rap() {
   if [[ ! "$1" ]] ; then
     echo "You must supply a github repo."
     return 1

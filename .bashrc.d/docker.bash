@@ -17,26 +17,26 @@ function dbash() {
 }
 
 # stop all containers and remove all images
-function dkill() {
+dkill() {
   dstop && drmi
 }
 
 # TODO: input is no tty
-function drootbash() {
+drootbash() {
   drdp | xargs -t -n1 -I{} bash -c "dbash {}"
 }
 
 # Run docker container in detached and privileged mode
-function drdp() {
+drdp() {
   docker run --detach --privileged "${1:-jam82/ubuntu-molecule:1804}"
 }
 
 # Remove all local Docker images
-function drmi() {
+drmi() {
   docker images | awk '{ print $3 }' | grep -v IMAGE | xargs docker rmi -f
 }
 
 # Stop all running docker containers
-function dstop() {
+dstop() {
   docker ps | awk '{ print $1}' | grep -v CONTAINER | xargs docker stop
 }

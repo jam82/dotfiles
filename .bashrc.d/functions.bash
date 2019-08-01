@@ -5,7 +5,7 @@
 # ----------------------------------------------------------------------------
 
 # show colors
-function colors() {
+colors() {
   local fgc bgc vals seq0
 
   printf "Color escapes are %s\n" '\e[${value};...;${value}m'
@@ -34,7 +34,7 @@ function colors() {
 
 # ex - archive extractor
 # usage: ex <file>
-function ex() {
+ex() {
   if [ -f "$1" ] ; then
     case "$1" in
       *.tar.bz2)   tar xjf "$1"   ;;
@@ -56,7 +56,7 @@ function ex() {
 }
 
 # up 2 = cd ../../
-function upup() { 
+upup() { 
   DEEP=$1; \
   [ -z "${DEEP}" ] && { DEEP=1; }; \
   for i in $(seq 1 ${DEEP}); do cd ../; done; 

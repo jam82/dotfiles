@@ -10,19 +10,19 @@ DOT_GIT=$DOT_PATH/.git
 alias dotfiles="/usr/bin/git --git-dir=$DOT_GIT --work-tree=$DOT_PATH/"
 
 # update
-function dotfiles-update() {
+dotfiles-update() {
     dotfiles pull
     source ~/.bashrc
 }
 
 # update all including remotes
-function dotfiles-update-all() {
+dotfiles-update-all() {
     dotfiles-update
     ansible ${1:-all} -m shell -a "cd ~/.dotfiles && git pull"
 }
 
 # commit and push
-function dotfiles-cap() {
+dotfiles-cap() {
     dotfiles add .
     dotfiles commit
     dotfiles push
