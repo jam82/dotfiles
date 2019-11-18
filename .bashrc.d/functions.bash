@@ -61,3 +61,17 @@ upup() {
   [ -z "${DEEP}" ] && { DEEP=1; }; \
   for i in $(seq 1 ${DEEP}); do cd ../; done; 
 }
+
+replace-all() {
+  if [[ ! "$1" ]] ; then
+    echo "You must supply a search string."
+    return 1
+  fi
+    if [[ ! "$2" ]] ; then
+    echo "You must supply a replacement string."
+    return 1
+  fi
+
+  for file in `find . -type f -exec grep -l "${1}" {} \;`; do \
+  sed -i "s/${1}/${2}/g" $file; done;
+}

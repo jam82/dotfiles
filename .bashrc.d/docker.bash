@@ -6,7 +6,7 @@
 # ----------------------------------------------------------------------------
 
 # Enter a running Docker container.
-function dbash() {
+dbash() {
   if [[ ! "$1" ]] ; then
     echo "You must supply a container ID or name."
     return 1
