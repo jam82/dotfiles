@@ -19,7 +19,7 @@ set browsedir=current           " which directory to use for the file browser
 set complete+=k                 " scan files given with the 'dictionary' option
 set history=50                  " keep 50 lines of command line history
 set listchars=tab:>.,eol:\$     " strings to use in 'list' mode
-set mouse="
+set mouse-=a                    " disable auto visual mode
 set nowrap                      " do not wrap lines
 set popt=left:8pc,right:3pc     " print options
 set ruler                       " show the cursor position all the time
