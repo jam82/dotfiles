@@ -17,7 +17,9 @@ set backspace=indent,eol,start  " backspacing over everything in insert mode
 set background=dark             " colors for dark background
 set browsedir=current           " which directory to use for the file browser
 set complete+=k                 " scan files given with the 'dictionary' option
+set confirm
 set history=50                  " keep 50 lines of command line history
+set laststatus=2
 set listchars=tab:>.,eol:\$     " strings to use in 'list' mode
 set mouse-=a                    " disable auto visual mode
 set nowrap                      " do not wrap lines
@@ -26,6 +28,7 @@ set ruler                       " show the cursor position all the time
 set showcmd                     " display incomplete commands
 set showmatch
 set showmode
+set smartcase
 "set smartindent                 " smart autoindenting when starting a new line
 set visualbell                  " visual bell instead of beeping
 set wildignore=*.bak,*.o,*.e,*~ " wildmenu: ignore these extensions
@@ -43,8 +46,8 @@ set noswapfile
 " Tabs and spacing.
 "-------------------------------------------------------------------------------
 set expandtab
-set tabstop=2                   " number of spaces that a <Tab> counts for
-set shiftwidth=2                " number of spaces to use for each indent
+set tabstop=4                   " number of spaces that a <Tab> counts for
+set shiftwidth=4                " number of spaces to use for each indent
 
 "-------------------------------------------------------------------------------
 " Search options highlight and incremental.
@@ -55,11 +58,16 @@ set incsearch                   " do incremental searching
 "-------------------------------------------------------------------------------
 " Syntax and filetype settings.
 "-------------------------------------------------------------------------------
-syntax on
-filetype on             " enable filetype detection
-filetype indent on      " enable filetype-specific indenting
-filetype plugin on      " enable filetype-specific plugins
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+if has('syntax')
+  syntax on
+endif
+
+if has('filetype')
+  filetype on             " enable filetype detection
+  filetype indent on      " enable filetype-specific indenting
+  filetype plugin on      " enable filetype-specific plugins
+  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+endif
 
 "-------------------------------------------------------------------------------
 " Set title in screen window and reset to previous title after leaving vim.
