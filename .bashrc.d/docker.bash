@@ -33,7 +33,7 @@ drdp() {
 
 # Remove all local Docker images
 drmi() {
-  docker images | awk '{ print $3 }' | grep -v IMAGE | xargs docker rmi -f
+  docker images --format="{{.ID}}" | xargs -r docker rmi -f
 }
 
 # Stop all running docker containers
