@@ -5,7 +5,7 @@
 # ----------------------------------------------------------------------------
 
 # ansible-galaxy init with custom role skeleton
-aga-init() {
+agr-init() {
     if [ -z "$1" ]; then
     echo "Please specify a role name that will be appended to ansible-role-<rolename>"
     return 1
